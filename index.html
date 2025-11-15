@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="RU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond Horizons</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" sizes="360х360" href="images/Лого.png">
+    <script src="jquery-3.7.1.min.js"></script>
+
+</head>
+<body> 
+    <header>
+        <div class="header-top" style="background-color: rgba(235, 102, 43, 0.05);">
+            <div class="header_left-side">
+                <div class="logo">
+                    <img src="images/Лого.png" alt="">
+                </div>
+                <nav>
+                    <ul class="nav-list">
+                        <li class="nav-item nav-item-active"><a href="index.html">Главная</a></li>
+                        <li class="nav-item"><a href="catalogPhuket.html">Туры</a></li>
+                        <li class="nav-item"><a href="#!">Страницы</a></li>
+                        <li class="nav-item"><a href="#!">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header_right-side">
+                <div class="auto-buttons">
+                    <p class="sign"><a href="#!">Регистрация</a></p>
+                    <div class="login-btn open-popup">
+                        <a href="#!">Войти</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-bottom">
+            <h1 class="header-title">
+                Жизнь - это Приключение, <br>Используй Его По Максимуму.
+            </h1>
+
+            <div class="search-form">
+                <div class="searchForm_form">
+                    <div class="searchFormItem">
+                        <div class="searchFormItem_icon">
+                            <img src="icons/div.searchFormItem__icon.svg" alt="" style="width: 55px; height: 55px;">
+                        </div>
+                        <div class="searchFormItem_text">
+                            <h2 class="searchFormItem_title">Где</h2>
+                            <p class="searchFormItem_p">Поиск пунктов назначения</p>
+                        </div>
+                    </div>
+                    <div class="searchFormItem">
+                        <div class="searchFormItem_icon">
+                            <img src="icons/div.searchFormItem__icon (1).svg" alt="" style="width: 55px; height: 55px;">
+                        </div>
+                        <div class="searchFormItem_text">
+                            <h2 class="searchFormItem_title">Когда</h2>
+                            <p class="searchFormItem_p">Февраль 05 ~ Март 14</p>
+                        </div>
+                    </div>
+                    <div class="searchFormItem">
+                        <div class="searchFormItem_icon">
+                            <img src="icons/div.searchFormItem__icon (2).svg" alt="" style="width: 55px; height: 55px;">
+                        </div>
+                        <div class="searchFormItem_text">
+                            <h2 class="searchFormItem_title">Тип тура</h2>
+                            <p class="searchFormItem_p">Все туры</p>
+                        </div>
+                    </div>
+
+                    <input type="checkbox" class="searchFormItem_input" checked onclick="return false">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="popup-bg">
+        <div class="popup">
+            <h2 class="popup-title">Войти</h2>
+            <img class="close-popup" src="" style="width:25px">
+            <form action="" class="popup-form">
+                <input type="text" placeholder="Имя" required>
+                <input type="tel" placeholder="Телефон" required>
+                <input value="Подтвердить" type="submit">
+            </form>
+        </div>
+   </div>
+
+    <main>
+        <section class="popular">
+            <div class="wrapper">
+                <div class="popular-header">
+                    <h1>Популярные занятия</h1>
+                    <p>Все</p>
+                </div>
+               
+                <div class="popularGallery">
+                    <div class="popularGalleryItem">
+                        <img src="images/div.featureCard__image.png" alt="" class="popularGalleryItem_img" id="featureCard__image-1">
+                        <div class="popular_text-overlay">Круизы</div>
+                    </div>
+                    <div class="popularGalleryColumn-1">
+                        <div class="popularGalleryItem">
+                            <img src="images/div.featureCard__image (1).png" alt="" class="popularGalleryItem_img" id="featureCard__image-1">
+                            <div class="popular_text-overlay">Пляжные туры</div>
+                        </div>
+                        <div class="popularGalleryItem">
+                            <img src="images/div.featureCard__image (2).png" alt="" class="popularGalleryItem_img" id="featureCard__image-1">
+                            <div class="popular_text-overlay">Экскурсии по музею</div>
+                        </div>
+                    </div>
+                   
+                    <div class="popularGalleryColumn-2">
+                        <div class="popularGalleryItem">
+                            <img src="images/div.featureCard__image (3).png" alt="" class="popularGalleryItem_img" id="featureCard__image-1">
+                            <div class="popular_text-overlay">Экскурсии по городу</div>
+                        </div>
+                        <div class="popularGalleryItem">
+                            <img src="images/div.featureCard__image (4).png" alt="" class="popularGalleryItem_img" id="featureCard__image-1">
+                            <div class="popular_text-overlay">Еда</div>
+                        </div>
+                        <div class="popularGalleryItem">
+                            <img src="images/div.featureCard__image (5).png" alt="" class="popularGalleryItem_img" id="featureCard__image-1">
+                            <div class="popular_text-overlay">Пеший туризм</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tourz">
+            <div class="wrapper">
+                <h1 class="tourz-title">Зачем выбирать Tourz</h1>
+                <div class="tourzCollectionItems">
+                    <div class="tourzItem">
+                        <img src="icons/ticket.svg.svg" alt="">
+                        <h2>Максимальная гибкость</h2>
+                        <p>У вас есть возможность бесплатной
+                            отмены бронирования и оплаты в
+                            соответствии с любым планом и бюджетом.
+                        </p>
+                    </div>
+                    <div class="tourzItem">
+                        <img src="icons/hot-air-balloon.svg.svg" alt="">
+                        <h2>Незабываемые впечатления</h2>
+                        <p>Просматривайте и бронируйте туры и мероприятия
+                            , которые настолько невероятны, что вам захочется рассказать о них своим
+                            друзьям.
+                        </p>
+                    </div>
+                    <div class="tourzItem">
+                        <img src="icons/diamond.svg.svg" alt="">
+                        <h2>Качество - это наша основа</h2>
+                        <p>Высокие стандарты качества. Миллионы
+                            отзывов.
+                        </p>
+                    </div>
+                    <div class="tourzItem">
+                        <img src="icons/medal.svg.svg" alt="">
+                        <h2>Отмеченная наградами поддержка</h2>
+                        <p>Новая цена? Новый тарифный план? Без проблем.
+                            Мы здесь, чтобы помочь в режиме 24/7.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featuredTrips">
+            <div class="wrapper">
+                <div class="featured-header">
+                    <h1>Рекомендуемые поездки</h1>
+                    <p>Все</p>
+                </div>
+
+                <div class="TripCollectionItems">
+                    <div class="TripItem">
+                        <div class="TripItem_top">
+                            <img src="images/ft-1.png" alt="">
+                        </div>
+                        <div class="TripItem_bottom">
+                            <div class="text-description">
+                                <p class="country-text">Париж, Франция</p>
+                                <h2 class="tour-name">Тур по сороконожке - Экскурсия по пустыне Аризоны с гидом на квадроцикле</h2>
+                                <div class="TripItem_otzivi">
+                                    <img src="images/stars.png" alt="">
+                                    <p>4.8 (243)</p>
+                                </div>
+                            </div>
+                           <div class="TripItem_price">
+                            <p class="data">4 дня</p>
+                            <p class="price">От <span>$189.25</span></p>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="TripItem">
+                        <div class="TripItem_top">
+                            <img src="images/ft-2.png" alt="">
+                        </div>
+                        <div class="TripItem_bottom">
+                            <div class="text-description">
+                                <p class="country-text">Нью-Йорк, США</p>
+                                <h2 class="tour-name">Молокини и Черепаший городок.
+                                    Увлекательное плавание с маской и трубкой на борту</h2>
+                                <div class="TripItem_otzivi">
+                                    <img src="images/stars.png" alt="">
+                                    <p>4.8 (243)</p>
+                                </div>
+                            </div>
+                           <div class="TripItem_price">
+                            <p class="data">5 дней</p>
+                            <p class="price">От <span>$225</span></p>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="TripItem">
+                        <div class="TripItem_top">
+                            <img src="images/ft-3.png" alt="">
+                        </div>
+                        <div class="TripItem_bottom">
+                            <div class="text-description">
+                                <p class="country-text">Лондон, Великобритания</p>
+                                <h2 class="tour-name">Пешеходная экскурсия по Вестминстеру и
+                                    вход в Вестминстерское аббатство</h2>
+                                <div class="TripItem_otzivi">
+                                    <img src="images/stars.png" alt="">
+                                    <p>4.8 (243)</p>
+                                </div>
+                            </div>
+                           <div class="TripItem_price">
+                            <p class="data">3 дня</p>
+                            <p class="price">От <span>$943</span></p>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="TripItem">
+                        <div class="TripItem_top">
+                            <img src="images/ft-4.png" alt="">
+                        </div>
+                        <div class="TripItem_bottom">
+                            <div class="text-description">
+                                <p class="country-text">Нью-Йорк, США</p>
+                                <h2 class="tour-name">Остров Серкл "все включено".
+                                    Однодневная экскурсия с обедом</h2>
+                                <div class="TripItem_otzivi">
+                                    <img src="images/stars.png" alt="">
+                                    <p>4.8 (243)</p>
+                                </div>
+                            </div>
+                           <div class="TripItem_price">
+                            <p class="data">1 день</p>
+                            <p class="price">От <span>$771</span></p>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="TripItem">
+                        <div class="TripItem_top">
+                            <img src="images/ft-5.png" alt="">
+                        </div>
+                        <div class="TripItem_bottom">
+                            <div class="text-description">
+                                <p class="country-text">Париж, Франция</p>
+                                <h2 class="tour-name">Вход в Космический центр Хьюстона</h2>
+                                <div class="TripItem_otzivi">
+                                    <img src="images/stars.png" alt="">
+                                    <p>4.8 (243)</p>
+                                </div>
+                            </div>
+                           <div class="TripItem_price">
+                            <p class="data">2 дня</p>
+                            <p class="price">От <span>$189.25</span></p>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="TripItem">
+                        <div class="TripItem_top">
+                            <img src="images/ft-6.png" alt="">
+                        </div>
+                        <div class="TripItem_bottom">
+                            <div class="text-description">
+                                <p class="country-text">Нью-Йорк, США</p>
+                                <h2 class="tour-name">Экскурсия на байдарке по заповеднику Шелл-Ки
+                                    и району залива Тампа-Бэй</h2>
+                                <div class="TripItem_otzivi">
+                                    <img src="images/stars.png" alt="">
+                                    <p>4.8 (243)</p>
+                                </div>
+                            </div>
+                           <div class="TripItem_price">
+                            <p class="data">7 дней</p>
+                            <p class="price">От <span>$225</span></p>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="TripItem">
+                        <div class="TripItem_top">
+                            <img src="images/ft-7.png" alt="">
+                        </div>
+                        <div class="TripItem_bottom">
+                            <div class="text-description">
+                                <p class="country-text">Лондон, Великобритания</p>
+                                <h2 class="tour-name">Пешеходная экскурсия с гидом по истории и достопримечательностям Салема</h2>
+                                <div class="TripItem_otzivi">
+                                    <img src="images/stars.png" alt="">
+                                    <p>4.8 (243)</p>
+                                </div>
+                            </div>
+                           <div class="TripItem_price">
+                            <p class="data">3 дня</p>
+                            <p class="price">От <span>$943</span></p>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="TripItem">
+                        <div class="TripItem_top">
+                            <img src="images/ft-8.png" alt="">
+                        </div>
+                        <div class="TripItem_bottom">
+                            <div class="text-description">
+                                <p class="country-text">Нью-Йорк, США</p>
+                                <h2 class="tour-name">Вершина Мауна-Кеа, закат солнца и
+                                    звезды, бесплатные астрофотографии Хило Кона
+                                    Waikoloa Pick Up</h2>
+                                <div class="TripItem_otzivi">
+                                    <img src="images/stars.png" alt="">
+                                    <p>4.8 (243)</p>
+                                </div>
+                            </div>
+                           <div class="TripItem_price">
+                            <p class="data">6 дней</p>
+                            <p class="price">От <span>$771</span></p>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="trendingDestinations">
+            <div class="wrapper">
+                <div class="trending_header">
+                    <h1>Популярные направления</h1>
+                    <p>Все</p>
+                </div>
+    
+                <div class="destinationsCollection">
+                    <div class="destinationsItem">
+                        <img src="images/trend-1.png" alt="" class="destinationsItem_img">
+                        <div class="destinations_text-overlay">
+                            <h2 class="destinationsItem_title">Бали</h2>
+                            <p class="destinationsItem_text">100+ туров</p>
+                        </div>
+                    </div>
+                    <div class="destinationsItem">
+                        <img src="images/trend-2.png" alt="" class="destinationsItem_img">
+                        <div class="destinations_text-overlay">
+                            <h2 class="destinationsItem_title">Рим</h2>
+                            <p class="destinationsItem_text">100+ туров</p>
+                        </div>
+                    </div>
+                    <div class="destinationsItem">
+                        <img src="images/trend-3.png" alt="" class="destinationsItem_img">
+                        <div class="destinations_text-overlay">
+                            <h2 class="destinationsItem_title"><a href="catalogPhuket.html">Пхукет</a></h2>
+                            <p class="destinationsItem_text">100+ туров</p>
+                        </div>
+                    </div>
+                    <div class="destinationsItem">
+                        <img src="images/trend-4.png" alt="" class="destinationsItem_img">
+                        <div class="destinations_text-overlay">
+                            <h2 class="destinationsItem_title">Париж</h2>
+                            <p class="destinationsItem_text">100+ туров</p>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </section>
+        <section class="reviews">
+            <div class="wrapper">
+                <div class="reviews-text">
+                    <h1 class="reviews-title">Отзывы клиентов</h1>
+                    <img src="icons/чет.svg" alt="">
+                    <p class="reviews-description">Экскурсии на этом сайте великолепны. Мне было очень приятно провести время с семьей! Команда очень
+                        профессиональная и заботится о клиентах. Обязательно порекомендую своим друзьям присоединиться
+                        к этой компании!</p>
+                    <p class="aliTufan">Али Туфан</p>
+                    <p class="spez">Менеджер по продуктам, Apple Inc.</p>
+                </div>
+                <div class="humans">
+                    <img src="images/human-1.png" alt="">
+                    <img src="images/human-2.png" alt="">
+                    <img src="images/human-3.png" alt="">
+                    <img src="images/human-4.png" alt="">
+                    <img src="images/human-5.png" alt="">
+                </div>
+            </div>
+        </section>
+        <section class="travelArticles">
+            <div class="wrapper">
+                <div class="travelHeader">
+                    <h1>Статьи о путешествиях</h1>
+                    <p>Все</p>
+                </div>
+                <div class="travelCollection">
+                    <div class="travelItem">
+                        <img src="images/travel-1.png" alt="">
+                        <p class="travel_text-overlay">Поездки</p>
+
+                        <div class="travelText">
+                            <div class="travelText_info">
+                                <p class="travelData">6 апреля 2025</p>
+                                <p class="travelBy">Автор: Али Туфан</p>
+                            </div>
+                            <h2 class="travelNamed">Сафари в Кении и Танзании: Лучшие впечатления от африканского сафари</h2>
+                        </div>
+                    </div>
+                    <div class="travelItem">
+                        <img src="images/travel-2.png" alt="">
+                        <p class="travel_text-overlay">Поездки</p>
+
+                        <div class="travelText">
+                            <div class="travelText_info">
+                                <p class="travelData">7 апреля 2025</p>
+                                <p class="travelBy">Автор: Эмили Джонсон</p>
+                            </div>
+                            <h2 class="travelNamed">Путешествие по Серенгети: Приключение с дикой природой</h2>
+                        </div>
+                    </div>
+                    <div class="travelItem">
+                        <img src="images/travel-3.png" alt="">
+                        <p class="travel_text-overlay">Поездки</p>
+
+                        <div class="travelText">
+                            <div class="travelText_info">
+                                <p class="travelData">8 апреля 2025</p>
+                                <p class="travelBy">Автор: Максвелл Родс</p>
+                            </div>
+                            <h2 class="travelNamed">В дикую природу: Незабываемое сафари-путешествие</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="reklama">
+            <div class="wrapper">
+                <div class="reklama-text">
+                    <h1>Получите скидку 5% <br>при первом бронировании в приложении</h1>
+                    <p class="promo">Бронировать лучше через приложение. Используйте промо-код <br> "TourBooking", чтобы сэкономить!</p>
+                </div>
+               <div class="reklama-input">
+                    <p class="sentEmail_text">Получите волшебную ссылку, отправленную на ваш электронный адрес</p>
+                    <div class="reklama_inputs">
+                        <input type="email" class="input-text" placeholder="Электронная почта">
+                        <button type="submit">Отправить</button>
+                    </div>
+               </div>
+            </div>   
+        </section>
+    </main>
+    <footer>
+        <div class="wrapper">
+            <div class="columns">
+                <div class="contacts">
+                    <h4>Контакты</h4>
+                    <ul class="column-list">
+                        <li><a href="#!">Куинсберри-стрит, 328, <br>Северный Мельбурн</a></li>
+                        <li><a href="#!">hi@beyondhorizons.com</a></li>
+                    </ul>
+                </div>
+    
+                <div class="right-columns">
+                    <div class="footerColumn-1">
+                        <h4>Компания</h4>
+                        <ul class="column-list">
+                            <li><a href="#!">О нас</a></li>
+                            <li><a href="#!">Отзывы о туре</a></li>
+                            <li><a href="#!">Связаться с нами</a></li>
+                            <li><a href="#!">Путеводители</a></li>
+                            <li><a href="#!">Политика конфиденциальности</a></li>
+                            <li><a href="#!">Политика использования <br>файлов cookie</a></li>
+                            <li><a href="#!">Карта сайта</a></li>
+                        </ul>
+                    </div>
+                    <div class="footerColumn-2">
+                        <h4>Поддержка</h4>
+                        <ul class="column-list">
+                            <li><a href="#!">Связаться</a></li>
+                            <li><a href="#!">Центр поддержки</a></li>
+                            <li><a href="#!">Онлайн-чат</a></li>
+                            <li><a href="#!">Как это работает</a></li>
+                        </ul>
+                    </div>
+                    <div class="footerColumn-3">
+                        <h4>Новостная рассылка</h4>
+                        <p class="newsletter_text">Подпишитесь на бесплатную рассылку новостей <br>и будьте в курсе событий</p>
+                        <form action="" class="footer_form">
+                            <input type="email" placeholder="Электронная почта">
+                            <button type="submit">Отправить</button>
+                        </form>
+                        <div class="mobile_apps">
+                            <h4>Мобильные приложения</h4>
+                            <div class="apple-row">
+                                <img src="icons/icons8-apple-inc-50.png" alt="">
+                                <p>Приложение для iOS</p>
+                            </div>
+                            <div class="android-row">
+                                <img src="icons/icons8-android-50.png" alt="">
+                                <p>Приложение для Android</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </footer>
+
+    <script src="popup.js" ></script>
+</body>
+</html>
