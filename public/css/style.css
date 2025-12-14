@@ -22,7 +22,7 @@ a {
 
 .header-bottom {
     max-width: 100%;
-    background-image: url(images/Header\ img.png);
+    background-image: url(/images/Header\ img.png);
     height: 860px;
     background-position: center;
     object-fit: cover;
@@ -1143,7 +1143,7 @@ footer a {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    column-gap: 75px;
+    column-gap: 65px;
 }
 
 
@@ -1154,6 +1154,7 @@ footer a {
 
 .tour_descripting {
     margin-bottom: 54px;
+    line-height: 1.28;
 }
 
 .tour_descripting::after {
@@ -1219,7 +1220,7 @@ ul.includes_first-column li::before {
     top: 0;
     width: 20px;
     height:  20px;
-    background-image: url(icons/i.icon-check.png);
+    background-image: url(/icons/i.icon-check.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -1242,7 +1243,7 @@ ul.includes_second-column li::before {
     top: 0;
     width: 20px;
     height: 20px;
-    background-image: url(icons/i.icon-cross.png);
+    background-image: url(/icons/i.icon-cross.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -1324,14 +1325,14 @@ ul.includes_second-column li::before {
 .faq-toggle {
     width: 30px;
     height: 30px;
-    background: url(icons/div.accordion__iconOpacity.png);
+    background: url(/icons/div.accordion__iconOpacity.png);
     transition: transform 0.3s;
 }
 
 .faq-item.active .faq-toggle {
     width: 30px;
     height: 30px;
-    background: url(icons/div.accordion__icon.png);
+    background: url(/icons/div.accordion__icon.png);
 }
 
 .faq-item.active .faq-toggle {
@@ -1542,6 +1543,7 @@ ul.includes_second-column li::before {
     border: 1px solid #E7E6E6;
     border-radius: 12px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    min-width: 360px;
 }
 
 .tour-price {
@@ -1588,6 +1590,13 @@ ul.includes_second-column li::before {
 
 .tour-from_text p {
     font-size: 13px;
+    color: #717171;
+}
+
+.amount-tickets {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .tour-time {
@@ -1618,17 +1627,9 @@ ul.includes_second-column li::before {
     color: #717171;
 }
 
-.tickets h2 {
-    margin-bottom: 25px;
-    font-size: 18px;
-}
-
-.ticket-type {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+.amount-tickets h2 {
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .ticket-controls {
@@ -1648,7 +1649,7 @@ ul.includes_second-column li::before {
 }
 
 .quantity {
-    margin: 0 10px;
+    margin: 0 5px;
     min-width: 20px;
     text-align: center;
 }
@@ -1665,6 +1666,48 @@ ul.includes_second-column li::before {
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 25px;
+}
+
+.contactsPage {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.contacts-side-blog {
+    width: 43%;
+}
+
+.oren-img {
+    width: 550px;
+    height: 370px;
+    margin-bottom: 30px;
+}
+
+.contacts-columns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+.info-title {
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: normal;
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.info-desc {
+    color: #313339;
+    opacity: 0.9;
+    font-size: 14px;
 }
 
 #bookNow {
@@ -1769,6 +1812,10 @@ ul.includes_second-column li::before {
     accent-color: var(--main-color);
     width: 15px;
     height: 15px;
+}
+
+.contactsTitle {
+    margin-bottom: 47px;
 }
 
 @media screen and (max-width: 466px) {

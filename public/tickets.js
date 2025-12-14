@@ -1,7 +1,5 @@
-const prices = {
-    adult: 282.00,
-    youth: 168.00,
-    children: 80.00
+const costTour = {
+    price: 200.00
 };
 
 const quantities = {
@@ -21,9 +19,7 @@ function updateTicket(type, change) {
 
 function calculateTotal() {
     let total = 0;
-    total += quantities.adult * prices.adult;
-    total += quantities.youth * prices.youth;
-    total += quantities.children * prices.children;
+    total += quantities.adult * costTour.price;
     
     document.getElementById('total').textContent = `$${total.toFixed(2)}`;
 }
