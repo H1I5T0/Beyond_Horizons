@@ -5,7 +5,8 @@
     box-sizing: border-box;
 }
 
-ul, li {
+ul,
+li {
     list-style-type: none;
 }
 
@@ -80,7 +81,7 @@ a {
     transition: 0.3s;
 }
 
-.nav-item-active a{
+.nav-item-active a {
     color: var(--main-color);
 }
 
@@ -119,9 +120,7 @@ a {
     text-align: center;
     font-size: 60px;
     font-weight: 600;
-    background-image: linear-gradient(
-        to right, #EB662B, #4C43C4
-    );
+    background-image: linear-gradient(to right, #EB662B, #4C43C4);
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
@@ -161,7 +160,7 @@ a {
     margin-left: 10px;
 }
 
-.searchFormItem_title{
+.searchFormItem_title {
     font-weight: normal;
     font-size: 15px;
     margin-bottom: 2px;
@@ -172,7 +171,7 @@ a {
 }
 
 .searchFormItem_input {
-    width:55px;
+    width: 55px;
     height: 55px;
     border-radius: 50%;
     vertical-align: middle;
@@ -188,8 +187,8 @@ a {
 
 .searchFormItem_input:checked {
     appearance: auto;
-  clip-path: circle(49% at 50% 50%);
-  background-color: #EB662B;
+    clip-path: circle(49% at 50% 50%);
+    background-color: #EB662B;
 }
 
 label {
@@ -443,28 +442,27 @@ label {
 
 .destinationsItem::after {
     content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, rgba(5, 7, 60, 0.6), rgba(5, 7, 60, 0) 60%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(5, 7, 60, 0.6), rgba(5, 7, 60, 0) 60%);
 }
 
 .destinations_text-overlay {
     position: absolute;
-    top: 80%;
-    left: 35%;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
     z-index: 2;
-}
-
-.destinations_text-overlay {
     font-weight: 500;
     transition: 0.3s;
+    font-size: 20px;
 }
 
-.destinations_text-overlay a{
+.destinations_text-overlay a {
     color: white;
     transition: 0.3s;
 }
@@ -474,7 +472,71 @@ label {
     transition: 0.3s;
 }
 
-.destinations_text-overlay:hover {
+.directions-page {
+    margin-bottom: 73px;
+}
+
+.directionsCollection {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    justify-content: space-between;
+}
+
+.directionsItem {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#directions-title {
+    margin-bottom: 35px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.directionsItem img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: none;
+}
+
+.directionsItem::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(5, 7, 60, 0.6), rgba(5, 7, 60, 0) 60%);
+    border-radius: 12px;
+}
+
+.directionsItem_title {
+    font-size: 19px;
+    font-weight: 500;
+    transition: 0.3s;
+    color: white;
+}
+
+.directions_text-overlay {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 2;
+    font-weight: 500;
+    transition: 0.3s;
+    font-size: 20px;
+}
+
+.directions-overlay a {
+    color: white;
+    transition: 0.3s;
+}
+
+.directions_text-overlay a:hover {
     color: var(--main-color);
     transition: 0.3s;
 }
@@ -740,7 +802,8 @@ footer a {
     margin-left: -100px;
 }
 
-.apple-row, .android-row {
+.apple-row,
+.android-row {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -751,7 +814,7 @@ footer a {
 .apple-row img {
     width: 20px;
     height: 20px;
-    margin-right: 7px;      
+    margin-right: 7px;
 }
 
 .android-row img {
@@ -773,7 +836,7 @@ footer a {
     padding: 0;
     align-items: center;
 }
-  
+
 .breadcrumb li:not(:last-child)::after {
     display: inline-block;
     content: "—";
@@ -810,6 +873,8 @@ footer a {
     border-radius: 12px;
     display: inline-block;
     overflow: hidden;
+    max-width: 300px;
+    width: 100%;
 }
 
 .dateOfTraveling {
@@ -940,7 +1005,7 @@ footer a {
 
 .cardTour_description {
     font-size: 15px;
-    margin-bottom: 34px;
+    margin: 16px 0 34px 0;
 }
 
 .cardTour_links {
@@ -951,7 +1016,7 @@ footer a {
     font-size: 11px;
 }
 
-.cardTour_links a{
+.cardTour_links p {
     color: var(--main-color);
 }
 
@@ -959,7 +1024,7 @@ footer a {
     display: flex;
     flex-direction: column;
     border-left: 1px solid #E7E6E6;
-    padding: 14px 31px;
+    padding: 14px 0 14px 31px;
     align-items: center;
     justify-content: space-between;
     width: 25%;
@@ -980,7 +1045,7 @@ footer a {
 
 .old_price {
     color: #C6C6D2;
-    text-decoration:line-through;
+    text-decoration: line-through;
     margin-bottom: 5px;
 }
 
@@ -993,17 +1058,27 @@ footer a {
     font-weight: 500;
 }
 
-.cardTour_details button {
+.cardTour_details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.cardTour_details a {
     color: var(--main-color);
     background-color: white;
     border: 1px solid var(--main-color);
     border-radius: 12px;
     padding: 16px 50px;
+    width: 100%;
     cursor: pointer;
     transition: 0.3s;
+    font-size: 14px;
+    text-align: center;
 }
 
-.cardTour_details button:hover {
+.cardTour_details a:hover {
     color: white;
     background-color: var(--main-color);
     transition: 0.3s;
@@ -1044,7 +1119,7 @@ footer a {
     font-size: 13px;
 }
 
-.genres p{
+.genres p {
     font-size: 14px;
     color: black;
     background-color: #F5F5F5;
@@ -1070,7 +1145,6 @@ footer a {
 .tourName {
     font-size: 40px;
     margin-bottom: 26px;
-    max-width: 60%;
 }
 
 .tour-elements {
@@ -1159,16 +1233,30 @@ footer a {
 
 .tour_descripting::after {
     content: '';
-    padding-top: 52px;
+    padding-top: 26px;
     border-bottom: 1px solid #E7E6E6;
     display: block;
 }
 
-.tour_descripting p{
+.tour_descripting p {
     margin-bottom: 24px;
 }
 
-.tour_descripting h2{
+.cardTour_left-side .img {
+    max-width: 280px;
+    max-height: 305px;
+    width: 100%;
+    height: 100%;
+}
+
+.img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+ 
+.tour_descripting h2 {
     font-size: 19px;
     font-weight: 500;
     margin-bottom: 20px;
@@ -1176,7 +1264,7 @@ footer a {
 
 .tour_hightlights li {
     font-size: 14px;
-    list-style-type:disc;
+    list-style-type: disc;
     margin-bottom: 5px;
 }
 
@@ -1206,20 +1294,20 @@ ul.includes_first-column {
     list-style: none;
     padding-left: 0;
 }
-  
+
 ul.includes_first-column li {
     position: relative;
     padding-left: 30px;
     margin-bottom: 23px;
 }
-  
+
 ul.includes_first-column li::before {
     content: "";
     position: absolute;
     left: 0;
     top: 0;
     width: 20px;
-    height:  20px;
+    height: 20px;
     background-image: url(/icons/i.icon-check.png);
     background-size: contain;
     background-repeat: no-repeat;
@@ -1229,13 +1317,13 @@ ul.includes_second-column {
     list-style: none;
     padding-left: 0;
 }
-  
+
 ul.includes_second-column li {
     position: relative;
     padding-left: 30px;
     margin-bottom: 23px;
 }
-  
+
 ul.includes_second-column li::before {
     content: "";
     position: absolute;
@@ -1314,7 +1402,7 @@ ul.includes_second-column li::before {
 }
 
 .faq-item.active .faq-answer {
-    padding: 15px 20px;
+    padding: 0 20px 15px 20px;
     max-height: 500px;
 }
 
@@ -1325,18 +1413,23 @@ ul.includes_second-column li::before {
 .faq-toggle {
     width: 30px;
     height: 30px;
-    background: url(/icons/div.accordion__iconOpacity.png);
-    transition: transform 0.3s;
+    border-radius: 50%;
+    background-color: rgba(235, 102, 43, 0.05);
+    transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .faq-item.active .faq-toggle {
-    width: 30px;
-    height: 30px;
-    background: url(/icons/div.accordion__icon.png);
+    background-color: rgba(235, 102, 43, 1);
 }
 
-.faq-item.active .faq-toggle {
-    transform: rotate(45deg);
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    padding-bottom: 0;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
 }
 
 .tour-otzivi {
@@ -1355,6 +1448,11 @@ ul.includes_second-column li::before {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+#tour-map-container iframe {
+    width: 100%;
+    height: 550px;
 }
 
 .otziviDate {
@@ -1451,7 +1549,7 @@ ul.includes_second-column li::before {
 }
 
 .active-text {
-  color: #EB662B !important;
+    color: #EB662B !important;
 }
 
 .reply-form {
@@ -1659,6 +1757,13 @@ ul.includes_second-column li::before {
     margin: 20px 0;
 }
 
+.tour-price-box {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
 .total_price {
     display: flex;
     flex-direction: row;
@@ -1736,7 +1841,7 @@ ul.includes_second-column li::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
     display: none;
     z-index: 999;
 }
@@ -1762,6 +1867,113 @@ ul.includes_second-column li::before {
     width: 100%;
     display: flex;
     flex-direction: column;
+}
+
+#catalog-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--second-color);
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+#tour-list-container {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 54px;
+}
+
+.tour-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+}
+
+.tour-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tour-card_img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.tour-card_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.tour-card:hover .tour-card_img img {
+    transform: scale(1.05);
+}
+
+.tour-card_content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 40px;
+}
+
+.card-location {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.card-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-rating img {
+    width: 80px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.card-rating span {
+    font-size: 14px;
+    color: #333;
+}
+
+.card-price {
+    margin-top: auto;
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.card-price p {
+    font-size: 14px;
+    color: #999;
+}
+
+.card-price span {
+    font-size: 22 px;
+    font-weight: 700;
+    color: #EB662B;
 }
 
 .popup .popup-form input[type="text"],
@@ -1902,7 +2114,7 @@ ul.includes_second-column li::before {
     }
 
     .tourzCollectionItems {
-        grid-template-columns:  repeat(auto-fill, 200px);
+        grid-template-columns: repeat(auto-fill, 200px);
         justify-content: center;
         column-gap: 20px;
         row-gap: 50px;
@@ -1947,7 +2159,7 @@ ul.includes_second-column li::before {
         text-align: center;
     }
 
-    .trending_header h1{
+    .trending_header h1 {
         margin-bottom: 15px;
     }
 
@@ -1964,7 +2176,7 @@ ul.includes_second-column li::before {
         max-width: 1000px;
     }
 
-    .humans img{
+    .humans img {
         width: 80px;
         height: 80px;
         object-fit: cover;
@@ -1989,7 +2201,7 @@ ul.includes_second-column li::before {
 
     .reklama-text {
         text-align: center;
-    } 
+    }
 
     .sentEmail_text {
         margin-bottom: 25px;
@@ -2018,7 +2230,7 @@ ul.includes_second-column li::before {
     .contacts {
         margin-bottom: 25px;
     }
-    
+
     .contacts h4 {
         font-size: 24px;
     }
@@ -2064,7 +2276,7 @@ ul.includes_second-column li::before {
         max-height: 200px;
         border-radius: 12px;
         object-fit: cover;
-        background-position:bottom;
+        background-position: bottom;
     }
 
     .cardTours_description {
