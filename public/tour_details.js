@@ -124,7 +124,6 @@ function renderFAQ(faqs) {
     faqContainer.appendChild(h2);
     
     faqs.forEach(item => {
-        // Поддерживаем оба формата: { question, answer } из БД и, на всякий случай, { q, a }
         const question = item.question || item.q || '';
         const answer = item.answer || item.a || '';
         if (!question && !answer) return;
@@ -202,9 +201,56 @@ function setupBookingControls() {
 
     updateDisplay(0); 
     
-    document.getElementById('bookNow').addEventListener('click', () => {
+    document.getElementById('bookNow').addEventListener('click', async () => {
         if (currentQuantity > 0) {
-            alert(`Бронируем ${currentQuantity} билетов. Общая сумма: ${totalDiv.innerText}. (Нужно реализовать переход к оформлению заказа)`);
+            const token = localStorage.getItem('authToken');
+            const userId = localStorage.getItem('userId');
+            
+            if (!token || !userId) {
+                alert('Для бронирования необходимо войти в систему');
+                const openBtn = document.querySelector('.open-popup, .open-auth');
+                if (openBtn) {
+                    openBtn.click();
+                }
+                return;
+            }
+            
+            const params = new URLSearchParams(window.location.search);
+            const tourId = params.get('tourId');
+            
+            if (!tourId) {
+                alert('Ошибка: ID тура не найден');
+                return;
+            }
+            
+            const totalPrice = currentQuantity * baseTourPrice;
+            
+            try {
+                const response = await fetch('/api/bookings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        userId: parseInt(userId),
+                        tourId: parseInt(tourId),
+                        quantity: currentQuantity,
+                        totalPrice: totalPrice
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    alert(`Бронирование успешно! Забронировано ${currentQuantity} билетов на сумму ${totalDiv.innerText}`);
+                } else {
+                    alert(result.error || 'Ошибка при бронировании');
+                }
+            } catch (error) {
+                console.error('Ошибка бронирования:', error);
+                alert('Ошибка соединения с сервером');
+            }
         } else {
             alert('Пожалуйста, выберите количество билетов.');
         }

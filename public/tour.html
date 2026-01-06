@@ -31,23 +31,42 @@
             </div>
             <div class="header_right-side">
                 <div class="auto-buttons">
-                    <p class="sign"><a href="#!">Регистрация</a></p>
-                    <div class="login-btn open-popup">
-                        <a href="#!">Вход</a>
-                    </div>
+                    <button class="login-btn open-popup">
+                        <a href="profile.html">Войти</a>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
 
-    <div class="popup-bg">
+    <div class="popup-bg" style="display: none;">
         <div class="popup">
+            <span class="close-popup">&times;</span>
             <h2 class="popup-title">Вход</h2>
-            <img class="close-popup" src="" style="width:25px">
-            <form action="" class="popup-form">
-                <input type="text" placeholder="Имя" required>
-                <input type="tel" placeholder="Телефон" required>
-                <input value="Подтвердить" type="submit">
+            
+            <div id="auth-error" class="auth-message" style="display: none;"></div>
+            
+            <form id="login-form" class="popup-form">
+                <input type="email" id="login-email" placeholder="Электронная почта" required>
+                <input type="password" id="login-password" placeholder="Пароль" required>
+                <button type="submit">Войти</button>
+                <p class="switch-auth-text">
+                    Нет аккаунта? 
+                    <a href="#!" class="switch-auth-mode" data-mode="register">Зарегистрироваться</a>
+                </p>
+            </form>
+            
+            <form id="register-form" class="popup-form" style="display: none;">
+                <input type="text" id="register-fullname" placeholder="ФИО" required>
+                <input type="email" id="register-email" placeholder="Электронная почта" required>
+                <input type="password" id="register-password" placeholder="Пароль" required>
+                <input type="password" id="register-confirm-password" placeholder="Подтвердите пароль" required>
+                <input type="tel" id="register-phone" placeholder="Номер телефона" required>
+                <button type="submit">Зарегистрироваться</button>
+                <p class="switch-auth-text">
+                    Уже есть аккаунт? 
+                    <a href="#!" class="switch-auth-mode" data-mode="login">Войти</a>
+                </p>
             </form>
         </div>
     </div>
@@ -409,9 +428,8 @@
 
         <script src="faq.js" defer></script>
         <script src="index.js"></script>
-        <script src="tickets.js"></script>
-        <script src="popup.js" defer></script>
         <script src="tour_details.js"></script>
+        <script src="auth.js"></script>
     </main>
 </body>
 

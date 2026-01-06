@@ -1,21 +1,35 @@
 const express = require('express');
 const path = require('path');
+const crypto = require('crypto');
 const db = require('./database'); 
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
 
+function hashPassword(password) {
+    return crypto.createHash('sha256').update(password).digest('hex');
+}
+
+function generateToken() {
+    return crypto.randomBytes(32).toString('hex');
+}
+
+function authenticateToken(req, res, next) {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    
+    if (!token) {
+        return res.status(401).json({ "error": "Токен не предоставлен" });
+    }
+    
+    req.token = token;
+    next();
+}
+
 app.use(express.static(path.join(__dirname, 'public'))); 
 
 const locationMap = {
-    // Из directions.js приходят английские параметры (?location=Bali/Rome/Phuket/Paris),
-    // а в БД каталоги хранятся на русском.
-    'Bali': 'Бали',
-    'Rome': 'Рим',
-    'Phuket': 'Пхукет',
-    'Paris': 'Париж',
-    // Дополнительно поддержим и русские значения, если когда-нибудь будут использоваться напрямую в URL
     'Бали': 'Бали',
     'Рим': 'Рим',
     'Пхукет': 'Пхукет',
@@ -125,6 +139,161 @@ app.get('/api/catalogs', (req, res) => {
         res.json({
             message: "success",
             data: rows
+        });
+    });
+});
+
+app.post('/api/auth/register', (req, res) => {
+    const { fullName, email, password, phone } = req.body;
+    
+    if (!fullName || !email || !password || !phone) {
+        return res.status(400).json({ "error": "Все поля обязательны для заполнения" });
+    }
+    
+    const hashedPassword = hashPassword(password);
+    
+    const sql = `INSERT INTO Users (FullName, Email, Password, Phone) VALUES (?, ?, ?, ?)`;
+    
+    db.run(sql, [fullName, email, hashedPassword, phone], function(err) {
+        if (err) {
+            if (err.message.includes('UNIQUE constraint failed')) {
+                return res.status(400).json({ "error": "Пользователь с таким email уже существует" });
+            }
+            console.error(err.message);
+            return res.status(500).json({ "error": "Ошибка при регистрации пользователя" });
+        }
+        
+        res.json({
+            message: "success",
+            userId: this.lastID
+        });
+    });
+});
+
+app.post('/api/auth/login', (req, res) => {
+    const { email, password } = req.body;
+    
+    if (!email || !password) {
+        return res.status(400).json({ "error": "Введите email и пароль" });
+    }
+    
+    const hashedPassword = hashPassword(password);
+    
+    const sql = `SELECT UserID, FullName, Email, Phone FROM Users WHERE Email = ? AND Password = ?`;
+    
+    db.get(sql, [email, hashedPassword], (err, row) => {
+        if (err) {
+            console.error(err.message);
+            return res.status(500).json({ "error": "Ошибка при входе" });
+        }
+        
+        if (!row) {
+            return res.status(401).json({ "error": "Неверный email или пароль" });
+        }
+        
+        const token = generateToken();
+        
+        res.json({
+            message: "success",
+            token: token,
+            userId: row.UserID
+        });
+    });
+});
+
+app.get('/api/user/:id', authenticateToken, (req, res) => {
+    const userId = req.params.id;
+    
+    const sql = `SELECT UserID, FullName, Email, Phone FROM Users WHERE UserID = ?`;
+    
+    db.get(sql, [userId], (err, row) => {
+        if (err) {
+            console.error(err.message);
+            return res.status(500).json({ "error": "Ошибка при получении данных пользователя" });
+        }
+        
+        if (!row) {
+            return res.status(404).json({ "error": "Пользователь не найден" });
+        }
+        
+        res.json({
+            message: "success",
+            data: row
+        });
+    });
+});
+
+app.get('/api/bookings/:userId', authenticateToken, (req, res) => {
+    const userId = req.params.userId;
+    
+    const sql = `
+        SELECT 
+            b.BookingID, b.Quantity, b.TotalPrice, b.BookingDate,
+            t.Title as TourTitle
+        FROM Bookings b
+        JOIN Tours t ON b.TourID = t.TourID
+        WHERE b.UserID = ?
+        ORDER BY b.BookingDate DESC
+    `;
+    
+    db.all(sql, [userId], (err, rows) => {
+        if (err) {
+            console.error(err.message);
+            return res.status(500).json({ "error": "Ошибка при получении истории бронирований" });
+        }
+        
+        res.json({
+            message: "success",
+            data: rows
+        });
+    });
+});
+
+app.post('/api/bookings', authenticateToken, (req, res) => {
+    const { userId, tourId, quantity, totalPrice } = req.body;
+    
+    if (!userId || !tourId || !quantity || !totalPrice) {
+        return res.status(400).json({ "error": "Все поля обязательны" });
+    }
+    
+    const checkSeatsSql = `SELECT AvailableSeats FROM Tours WHERE TourID = ?`;
+    
+    db.get(checkSeatsSql, [tourId], (err, tour) => {
+        if (err) {
+            console.error(err.message);
+            return res.status(500).json({ "error": "Ошибка при проверке доступности мест" });
+        }
+        
+        if (!tour) {
+            return res.status(404).json({ "error": "Тур не найден" });
+        }
+        
+        if (tour.AvailableSeats < quantity) {
+            return res.status(400).json({ "error": "Недостаточно свободных мест" });
+        }
+        
+        const insertSql = `INSERT INTO Bookings (UserID, TourID, Quantity, TotalPrice) VALUES (?, ?, ?, ?)`;
+        
+        db.run(insertSql, [userId, tourId, quantity, totalPrice], function(err) {
+            if (err) {
+                console.error(err.message);
+                return res.status(500).json({ "error": "Ошибка при создании бронирования" });
+            }
+            
+            const bookingId = this.lastID;
+            
+            const updateSeatsSql = `UPDATE Tours SET AvailableSeats = AvailableSeats - ? WHERE TourID = ?`;
+            
+            db.run(updateSeatsSql, [quantity, tourId], (err) => {
+                if (err) {
+                    console.error(err.message);
+                }
+                
+                res.json({
+                    message: "success",
+                    bookingId: bookingId
+                });
+            });
         });
     });
 });
